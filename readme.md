@@ -50,4 +50,8 @@ The route file will require in the controller methods, and then run the relevant
 Our main server file.
 - require Express 
 - require the connection.js (the connected mongoose object) and use that to interface with the models
-- require 
+- Add the middleware
+
+# Done. NICE.
+
+![final commit!](final-commit.jpg)
