@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000/classmates
+Content-Type: application/json
+
+{
+    "firstName" : "gen",
+    "lastName": "mauger",
+    "company": "Code For Australia",
+    "address": "4 Brunswick Pl, Melbourne VIC 3000" 
+}
