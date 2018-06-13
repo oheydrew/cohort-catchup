@@ -16,6 +16,12 @@ app.use(bodyParser.json());
 
 app.use('/', classmatesRouter);
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 // run server
 app.listen( config.serverPort, () => {
     console.log( `Express server listening on port ${config.serverPort} 😀 ` );
@@ -24,5 +30,7 @@ app.listen( config.serverPort, () => {
   console.log( `*** Server Error! Details below: ***` );
   console.log( error );
 });
+
+
 
 // module.exports = mongoose;
