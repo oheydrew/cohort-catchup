@@ -7,7 +7,7 @@ function buildClassmate(classmate) {
   const companyItem = document.createElement('li');
   const addressItem = document.createElement('li');
 
-  nameItem.textContent = `${classmate.firstName} ${classmate.lastName}`;
+  nameItem.textContent = `${capitalize(classmate.firstName)} ${capitalize(classmate.lastName)}`;
   companyItem.textContent = classmate.company;
   addressItem.textContent = classmate.address;
 
@@ -23,12 +23,10 @@ const classmatesUrl = 'http://localhost:3000/classmates';
 function fetchClassmates(url) {
   fetch(url)
   .then(response => { 
-    response.json();
-    console.log(response);
+    return response.json();
   })
-  .then(classmates => {
-    console.log(classmates) 
-    listClassmates(classmates);
+  .then(response => {
+    listClassmates(response);
   })
   .catch(error => {
     console.log(error.message);
@@ -41,7 +39,13 @@ function listClassmates(classmates) {
   });
 }
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 fetchClassmates(classmatesUrl);
+
+
 
 // classmate = {
 //               id: "5b208cc71296939a6d4fcddc",

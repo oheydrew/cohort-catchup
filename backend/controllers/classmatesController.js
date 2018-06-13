@@ -5,6 +5,7 @@ function getAllClassmates( req, res ) {
   Classmate.find().sort('-dateAdded')
   .then(classmates => {
     res.status(200).json( classmates );
+    res.set('Content-Type', 'application/json');
     console.log('getAllClassmates successful, all classmates returned');
   })
   .catch( err => {
